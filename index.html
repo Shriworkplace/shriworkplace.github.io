@@ -123,9 +123,286 @@
         gtag('config', 'G-XXXXXXXXXX');
     </script>
     <link rel="stylesheet" href="styles.css" />
+    <style>
+        /* Hide main content while preloader is active */
+        body.loading nav, 
+        body.loading main, 
+        body.loading footer {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
+    </style>
 </head>
 
-<body class="font-body-md selection:bg-primary-fixed-dim selection:text-on-primary-fixed">
+<body class="font-body-md selection:bg-primary-fixed-dim selection:text-on-primary-fixed loading">
+    <!-- Preloader from code.html -->
+    <div id="preloader" class="absolute top-0 left-0 w-full z-[9999] transition-opacity duration-1000 ease-in-out bg-transparent pointer-events-none">
+        
+        <!-- Skeleton Loading UI -->
+        <div id="skeleton-ui" class="relative z-20 w-full">
+            <!-- Nav Skeleton -->
+            <div class="fixed top-0 left-0 right-0 flex justify-between items-center px-gutter py-4 rounded-full mt-6 mx-auto w-[90%] max-w-container-max bg-white/5 animate-pulse border border-white/10 h-[74px] z-50">
+                <div class="w-48 h-10 bg-white/10 rounded-full ml-2"></div>
+                <div class="hidden md:flex gap-8 mr-6">
+                    <div class="w-16 h-4 bg-white/10 rounded-full"></div>
+                    <div class="w-16 h-4 bg-white/10 rounded-full"></div>
+                    <div class="w-16 h-4 bg-white/10 rounded-full"></div>
+                </div>
+            </div>
+
+            <!-- Hero Skeleton -->
+            <div class="relative z-10 pt-asymmetric-offset w-full mb-32">
+                <div class="min-h-[85vh] grid grid-cols-1 md:grid-cols-2 items-center px-margin-desktop max-w-container-max mx-auto gap-12">
+                    <div class="max-w-xl w-full flex flex-col gap-6">
+                        <div class="w-3/4 h-16 bg-white/5 animate-pulse rounded-2xl"></div>
+                        <div class="w-1/2 h-16 bg-white/5 animate-pulse rounded-2xl"></div>
+                        <div class="w-full h-24 bg-white/5 animate-pulse rounded-xl mt-6"></div>
+                        <div class="flex flex-wrap gap-4 mt-4">
+                            <div class="w-40 h-14 bg-white/5 animate-pulse rounded-full"></div>
+                            <div class="w-40 h-14 bg-white/5 animate-pulse rounded-full"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- ID Card Skeleton -->
+                    <div class="hidden md:flex justify-center items-center relative h-full">
+                        <div class="w-[280px] h-[350px] bg-white/5 animate-pulse rounded-2xl border border-white/10 mt-[-100px]"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects Skeleton -->
+            <div class="px-margin-desktop max-w-container-max mx-auto mb-asymmetric-offset w-full">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                    <div>
+                        <div class="w-32 h-4 bg-white/5 animate-pulse rounded mb-4"></div>
+                        <div class="w-64 h-12 bg-white/5 animate-pulse rounded-lg mt-4"></div>
+                    </div>
+                    <div class="text-right">
+                        <div class="w-48 h-10 bg-white/5 animate-pulse rounded-lg"></div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+                    <!-- Project 1 Skeleton -->
+                    <div class="md:col-span-7">
+                        <div class="glass-card rounded-3xl overflow-hidden aspect-[16/9] bg-white/5 animate-pulse border border-white/10"></div>
+                        <div class="p-8">
+                            <div class="w-48 h-8 bg-white/5 animate-pulse rounded mb-2"></div>
+                            <div class="w-32 h-4 bg-white/5 animate-pulse rounded"></div>
+                        </div>
+                    </div>
+                    <!-- Project 2 Skeleton -->
+                    <div class="md:col-span-5 md:mt-24">
+                        <div class="glass-card rounded-3xl overflow-hidden aspect-[4/5] bg-white/5 animate-pulse border border-white/10"></div>
+                        <div class="p-8">
+                            <div class="w-48 h-8 bg-white/5 animate-pulse rounded mb-2"></div>
+                            <div class="w-32 h-4 bg-white/5 animate-pulse rounded"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Journey Section Skeleton -->
+            <div class="px-margin-desktop max-w-container-max mx-auto mb-asymmetric-offset w-full">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+                    <div>
+                        <div class="w-40 h-4 bg-white/5 animate-pulse rounded mb-8 block"></div>
+                        <div class="space-y-12">
+                            <div class="border-l border-white/10 pl-8">
+                                <div class="w-24 h-4 bg-white/5 animate-pulse rounded"></div>
+                                <div class="w-48 h-8 bg-white/5 animate-pulse rounded mt-2"></div>
+                                <div class="w-32 h-4 bg-white/5 animate-pulse rounded mt-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:pl-20 mt-12 md:mt-0">
+                        <div class="w-40 h-4 bg-white/5 animate-pulse rounded mb-8 block"></div>
+                        <div class="space-y-12">
+                            <div class="border-l border-white/10 pl-8">
+                                <div class="w-24 h-4 bg-white/5 animate-pulse rounded"></div>
+                                <div class="w-64 h-8 bg-white/5 animate-pulse rounded mt-2"></div>
+                                <div class="w-48 h-4 bg-white/5 animate-pulse rounded mt-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Section Skeleton -->
+            <div class="px-margin-desktop max-w-container-max mx-auto mb-asymmetric-offset w-full">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+                    <div class="aspect-[4/5] rounded-[40%_60%_70%_30%/40%_50%_60%_40%] bg-white/5 animate-pulse border border-white/10"></div>
+                    <div>
+                        <div class="w-full h-16 bg-white/5 animate-pulse rounded-xl mb-4"></div>
+                        <div class="w-3/4 h-16 bg-white/5 animate-pulse rounded-xl mb-8"></div>
+                        
+                        <div class="w-full h-4 bg-white/5 animate-pulse rounded mb-3"></div>
+                        <div class="w-full h-4 bg-white/5 animate-pulse rounded mb-3"></div>
+                        <div class="w-5/6 h-4 bg-white/5 animate-pulse rounded mb-8"></div>
+                        
+                        <div class="w-24 h-8 bg-white/5 animate-pulse rounded"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Connect Section Skeleton -->
+            <div class="px-margin-desktop max-w-container-max mx-auto mb-32 w-full">
+                <div class="glass-card rounded-[4rem] p-16 md:p-24 text-center border border-white/10 bg-white/5 animate-pulse">
+                    <div class="w-64 h-16 bg-white/10 rounded-2xl mx-auto mb-12"></div>
+                    <div class="w-48 h-6 bg-white/10 rounded mx-auto mb-12"></div>
+                    <div class="w-80 h-6 bg-white/10 rounded mx-auto"></div>
+                </div>
+            </div>
+        </div>
+
+        <canvas id="shader-canvas-ANIMATION_9" class="fixed top-0 left-0 w-full h-full z-10" style="display:block; pointer-events:none;"></canvas>
+        <script>
+        (function() {
+          const canvas = document.getElementById('shader-canvas-ANIMATION_9');
+          // Removed body.overflow = hidden to allow scrolling the skeletons
+          
+          function syncSize() {
+            const w = canvas.clientWidth  || window.innerWidth;
+            const h = canvas.clientHeight || window.innerHeight;
+            if (canvas.width !== w || canvas.height !== h) {
+              canvas.width  = w;
+              canvas.height = h;
+            }
+          }
+          if (typeof ResizeObserver !== 'undefined') {
+            new ResizeObserver(syncSize).observe(canvas);
+          }
+          syncSize();
+
+          const gl = canvas.getContext('webgl', { alpha: true, premultipliedAlpha: false }) || canvas.getContext('experimental-webgl', { alpha: true, premultipliedAlpha: false });
+          if (!gl) return;
+          const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+          const fs = `precision highp float;
+varying vec2 v_texCoord;
+uniform float u_time;
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+
+float hash(vec2 p) {
+    p = fract(p * vec2(123.34, 456.21));
+    p += dot(p, p + 45.32);
+    return fract(p.x * p.y);
+}
+
+void main() {
+    // Normalized coordinates from 0.0 to 1.0
+    vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+    // Account for aspect ratio so particles are round
+    float aspect = u_resolution.x / u_resolution.y;
+    
+    // Transparent background
+    vec3 color = vec3(0.0);
+    float alpha = 0.0;
+    
+    // Render independently moving particles
+    for (int i = 0; i < 80; i++) {
+        // Unique seed per particle
+        vec2 seed = vec2(float(i) * 1.23, float(i) * 3.45);
+        
+        // Random start position
+        vec2 startPos = vec2(hash(seed), hash(seed + 1.0));
+        
+        // Random velocity matching the canvas particle velocities (slow independent drift)
+        vec2 vel = (vec2(hash(seed + 2.0), hash(seed + 3.0)) - 0.5) * 0.04;
+        
+        // Position drifts over time and wraps around [0, 1] seamlessly
+        vec2 pos = fract(startPos + vel * u_time);
+        
+        // Distance to particle center
+        vec2 d = uv - pos;
+        d.x *= aspect; // maintain circular shape
+        
+        float dist = length(d);
+        
+        // Random size similar to canvas particles
+        float size = hash(seed + 4.0) * 0.0015 + 0.001;
+        
+        // Soft glowing dot
+        float particle = smoothstep(size, 0.0, dist);
+        float glow = smoothstep(size * 5.0, 0.0, dist) * 0.4;
+        
+        // White/blueish colors from script.js
+        vec3 particleColor = vec3(0.85, 0.89, 0.95);
+        
+        // Flicker/opacity with random phase
+        float pulse = 0.5 + 0.5 * sin(u_time * (1.0 + hash(seed)) + hash(seed + 5.0) * 10.0);
+        
+        float particleIntensity = (particle + glow) * pulse;
+        color += particleColor * particleIntensity;
+        alpha += particleIntensity;
+    }
+
+    gl_FragColor = vec4(color, min(alpha, 1.0));
+}`;
+          function cs(type, src) {
+            const s = gl.createShader(type);
+            gl.shaderSource(s, src);
+            gl.compileShader(s);
+            return s;
+          }
+          const prog = gl.createProgram();
+          gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+          gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+          gl.linkProgram(prog);
+          gl.useProgram(prog);
+          const buf = gl.createBuffer();
+          gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+          gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+          const pos = gl.getAttribLocation(prog, 'a_position');
+          gl.enableVertexAttribArray(pos);
+          gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+          const uTime = gl.getUniformLocation(prog, 'u_time');
+          const uRes = gl.getUniformLocation(prog, 'u_resolution');
+          const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+          let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+
+          let reqId;
+          function render(t) {
+            if (!document.getElementById('shader-canvas-ANIMATION_9')) {
+              cancelAnimationFrame(reqId);
+              return;
+            }
+            if (typeof ResizeObserver === 'undefined') syncSize();
+            gl.viewport(0, 0, canvas.width, canvas.height);
+            if (uTime) gl.uniform1f(uTime, t * 0.001);
+            if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+            if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+            gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+            reqId = requestAnimationFrame(render);
+          }
+          reqId = requestAnimationFrame(render);
+          
+          // Preloader removal logic
+          window.addEventListener('load', () => {
+              setTimeout(() => {
+                  const preloader = document.getElementById('preloader');
+                  if (preloader) {
+                      preloader.style.opacity = '0';
+                      setTimeout(() => {
+                          preloader.remove();
+                          document.body.classList.remove('loading');
+                          
+                          // Trigger entrance animations in script.js
+                          window.dispatchEvent(new Event('preloaderComplete'));
+                      }, 1000);
+                  }
+              }, 1200); // 1.2s delay for presentation
+          });
+        })();
+        </script>
+    </div>
+
     <!-- Interactive Particle System -->
     <canvas id="particle-canvas"></canvas>
     <!-- Ambient Fluid Background -->

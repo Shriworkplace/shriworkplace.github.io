@@ -219,9 +219,19 @@
         // Initializers
         initParticles();
         animate();
-        setupScrollInteractions();
         setupMagneticButtons();
-        initEntrance();
+        
+        // Wait for preloader to complete before firing entrance animations
+        window.addEventListener('preloaderComplete', () => {
+            setupScrollInteractions();
+            initEntrance();
+        });
+        
+        // Fallback if no preloader exists
+        if (!document.getElementById('preloader')) {
+            setupScrollInteractions();
+            initEntrance();
+        }
 
         // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
