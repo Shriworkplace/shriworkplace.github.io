@@ -131,7 +131,7 @@
                 });
             }, focusOptions);
 
-            document.querySelectorAll('.md\\:col-span-7, .md\\:col-span-5, .md\\:col-span-4, .md\\:col-span-8').forEach(el => {
+            document.querySelectorAll('#projects .reveal-on-scroll, .md\\:col-span-7, .md\\:col-span-5, .md\\:col-span-4, .md\\:col-span-8, .md\\:col-span-12').forEach(el => {
                 focusObserver.observe(el);
             });
         };
